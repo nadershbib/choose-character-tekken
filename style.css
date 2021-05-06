@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  perspective: 500px;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./stone.jpg") center / cover no-repeat;
+}
+
+.character-box {
+  position: relative;
+  width: 800px;
+  max-width: 90%;
+  height: 600px;
+}
+
+.character-box > img {
+  position: absolute;
+  left: 37%;
+  transform: translate(-50%, -10%);
+  max-width: 62%;
+  opacity: 0;
+  transition: all 0.3s;
+  /* transform: scale(0); */
+}
+
+.show {
+  opacity: 1 !important;
+  transform: translate(-50%, -10%) translateZ(36px) !important;
+  /* transform: scale(1) !important; */
+}
+
+button {
+  position: absolute;
+  top: 43%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 4rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.next {
+  right: 0;
+}
+
+button.prev {
+  left: 0;
+}
+
+.character-select-container {
+  position: absolute;
+  bottom: 0;
+  /* border: 1px solid purple; */
+  width: 100%;
+  height: 17.5%;
+  display: flex;
+}
+
+.select-character {
+  flex: 1;
+  /* border: 1px solid blue; */
+  position: relative;
+  filter: brightness(65%);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.select-character:hover {
+  transform: scale(1.2);
+  filter: brightness(110%) saturate(1.5);
+}
+
+.select-character.hoverState,
+.select-character.hoverState::before {
+  transform: scale(1.2);
+  filter: brightness(110%) saturate(1.2) !important;
+  background: initial;
+}
+
+.select-character::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+}
+
+.select-character:hover::before {
+  background: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.199));
+}
+
+.select-character:nth-child(1) {
+  background: url(./tekken_characters/Jin.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(2) {
+  background: url(./tekken_characters/HEIHACHI.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(3) {
+  background: url(./tekken_characters/Kazuya.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(4) {
+  background: url(./tekken_characters/steve\ fox.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(5) {
+  background: url(./tekken_characters/HWORANG.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(6) {
+  background: url(./tekken_characters/Akuma.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(7) {
+  background: url(./tekken_characters/LAW.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(8) {
+  background: url(./tekken_characters/King.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(9) {
+  background: url(./tekken_characters/PAUL.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+.select-character:nth-child(10) {
+  background: url(./tekken_characters/Kuma.png)-27px 8% / cover no-repeat;
+  position: relative;
+}
+
+@media (max-width: 550px) {
+  .character-box > img {
+    position: absolute;
+    left: 32%;
+
+    top: 23%;
+    max-width: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  .select-character {
+    position: relative;
+    filter: brightness(65%);
+    transition: all 0.2s;
+    cursor: pointer;
+    flex-basis: 20%;
+  }
+
+  .character-select-container {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 21.5%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .character-box {
+    margin-bottom: 50px;
+  }
+}
